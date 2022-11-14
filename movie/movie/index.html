@@ -1,0 +1,323 @@
+<!doctype hmtl>
+<html>
+
+  <head>
+      
+      <link rel="stylesheet" type="text/css" href="../css.css">
+
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <script  type="text/javascript" src="../components/CabMenu.js"></script>
+  	  <script  type="text/javascript" src="../components/PiePagina.js"></script>
+  	  <script  type="text/javascript" src="../components/WindowModal.js"></script>
+      <script  type="text/javascript" src="../js/js.js"></script>
+      <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  </head>
+
+  <body>
+     
+     
+    <cab-menu> </cab-menu>
+
+    <div id="containerPost"></div>
+
+    <window-modal></window-modal>
+
+    <div class="contReproductor">
+
+      <div class="reproductor">
+
+        <div class="opReproductor">
+
+          <ul>
+        	  
+        	  <a class="activo" href="#">Sutitulado</a>
+        		<a href="#">Latino</a>
+        		<a href="#">Castellano</a>
+
+          </ul>
+
+        </div>
+
+        <video src="video.webm" poster="../logo.png" controls></video>
+
+      </div>
+    </div>
+
+    <pie-pagina></pie-pagina>
+
+    <script type="text/javascript">
+
+	    container = document.getElementById('containerPost');
+
+	    const req = new XMLHttpRequest();
+
+	    let movie = localStorage.getItem('movie');
+
+	    req.open('GET', 'http://www.omdbapi.com/?t='+movie+'&apikey=32dd73b9', true);
+
+	    req.onreadystatechange = function(){
+	  
+	      if(req.readyState == 4)
+		    {
+            
+          data  = JSON.parse(req.response);
+          
+          movie = document.createElement('div');
+			    movie.classList.add('bannerMovie');
+            
+          img = document.createElement('img');
+          img.src = data.Poster;
+          img.classList.add('imgPost');
+      
+          info = document.createElement('div');
+          info.classList.add('info');
+          
+          h1 = document.createElement('h1');
+          h1.classList.add('info-title');
+          h1.textContent = data.Title;
+
+          bloqueInfo = document.createElement('div');
+          bloqueInfo.classList.add('bloque-info');
+
+          info.appendChild(h1);
+          info.appendChild(bloqueInfo);
+
+          filaInfo = document.createElement('div');
+          filaInfo.classList.add('fila-info');
+
+          h3Info = document.createElement('h3');
+          h3Info.classList.add('h3-info');
+          h3Info.textContent = 'Título original : ';
+          filaInfo.appendChild(h3Info);
+
+          h4Info = document.createElement('h4');
+          h4Info.classList.add('h4-info');
+          h4Info.textContent = data.Title;
+          filaInfo.appendChild(h4Info);
+
+          bloqueInfo.appendChild(filaInfo);
+
+          filaInfo = document.createElement('div');
+          filaInfo.classList.add('fila-info');
+          
+          h3Info = document.createElement('h3');
+          h3Info.classList.add('h3-info');
+          h3Info.textContent = 'Año : ';
+          filaInfo.appendChild(h3Info);
+
+          h4Info = document.createElement('h4');
+          h4Info.classList.add('h4-info');
+          h4Info.textContent = data.Year;
+          filaInfo.appendChild(h4Info);
+
+          bloqueInfo.appendChild(filaInfo);
+
+          filaInfo = document.createElement('div');
+          filaInfo.classList.add('fila-info');
+
+
+          h3Info = document.createElement('h3');
+          h3Info.classList.add('h3-info');
+          h3Info.textContent = 'Genero : ';
+          filaInfo.appendChild(h3Info);
+
+          h4Info = document.createElement('h4');
+          h4Info.classList.add('h4-info');
+          h4Info.textContent = data.Genre;
+          filaInfo.appendChild(h4Info);
+
+          bloqueInfo.appendChild(filaInfo);
+
+          filaInfo = document.createElement('div');
+          filaInfo.classList.add('fila-info');
+         
+          h3Info = document.createElement('h3');
+          h3Info.classList.add('h3-info');
+          h3Info.textContent = 'Sinópsis : ';
+          filaInfo.appendChild(h3Info);
+
+          h4Info = document.createElement('h4');
+          h4Info.classList.add('h4-info');
+          h4Info.textContent = data.Plot;
+          filaInfo.appendChild(h4Info);
+
+          bloqueInfo.appendChild(filaInfo);
+
+          filaInfo = document.createElement('div');
+          filaInfo.classList.add('fila-info');
+
+
+          h3Info = document.createElement('h3');
+          h3Info.classList.add('h3-info');
+          h3Info.textContent = 'Reparto : ';
+          filaInfo.appendChild(h3Info);
+
+          h4Info = document.createElement('h4');
+          h4Info.classList.add('h4-info');
+          h4Info.textContent = data.Actors;
+          filaInfo.appendChild(h4Info);
+
+          bloqueInfo.appendChild(filaInfo);
+         
+          movie.appendChild(img);
+          movie.appendChild(info);
+		      container.appendChild(movie);
+		      
+        }
+      
+      }
+      
+      req.send(null);
+   
+    </script>
+    
+    <script  type="text/javascript" src="../components/CabMenu.js"></script>
+   
+</body>
+
+<style type="text/css">
+
+  #containerPost
+  {
+
+    background-color: #0B0B14;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+  }
+  
+  .bannerMovie
+  {
+
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+
+  }
+
+  .imgPost
+  {
+
+    width: 200px;
+
+  }
+
+  .info
+  {
+	  
+	  width: 100%;
+	  padding-left: 20px;
+	  color: white;
+  
+  }
+
+  .info-title
+  {
+
+	  color: #4A6CE3;
+
+  }
+  
+  .info-h2
+  {
+	 
+	  color: white;
+	  font-size: 16px;
+
+  }
+
+  .fila-info
+  {
+
+	  display: flex;
+	  align-items: center;
+    float: left;
+    flex-direction: row;
+	  width: 100%;
+    padding-bottom: 10px;
+
+  }
+
+  .h3-info
+  {
+
+    white-space: nowrap;
+
+  }
+
+  .h4-info
+  {
+
+	  color: #bbb;
+	  font-size: 14px;
+	  font-weight: 300;
+	  margin-left: 6px;
+
+  }
+
+  .bloque-info
+  {
+
+	  display: flex;
+	  flex-direction: column;
+
+  }
+
+  .contReproductor
+  {
+
+	  background-color: #0B0B14;
+	  display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+  }
+
+  .opReproductor{
+  
+    background-color: #19192C;
+    width: 96%;
+    display: flex;
+    justify-content: flex-start;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+  }
+
+  .opReproductor ul .activo
+  {
+
+	  background-color: #2B2B48 ;
+	  height: 100%;
+
+  }
+
+  video
+  {
+
+	  height: 500px;
+	  width: 96%;
+
+  }
+  
+  .reproductor{
+
+    display: flex;
+	  align-items: center;
+	  justify-content: center;
+	  flex-direction: column;
+	  width: 100%;
+	
+  }
+
+</style>
+
+
+
+
+</html>
+

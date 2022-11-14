@@ -1,0 +1,319 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@100;300;400;500;600;800&display=swap');
+
+*
+{
+   
+   box-sizing: 0;
+   padding: 0;
+   margin: 0;
+   font-family: 'Libre Franklin', sans-serif;
+
+}
+
+html
+{
+
+   position: relative;
+
+}
+
+body
+{
+   background-color: #0b0b14;
+}
+
+header
+{
+
+   display: grid;
+   align-items: center;
+   grid-template-columns: repeat(12, 1fr);
+   background-color: #1D1D37; 
+   color: #fff;
+
+}
+
+.logo
+{
+    
+   margin-left: 20px;
+      /*background-color: rebeccapurple;*/
+}
+
+nav
+{
+      
+      display: flex;
+      justify-content: space-between;
+      grid-column: 3/ 7;
+      /*background-color: rebeccapurple;*/
+}
+
+   input
+   {
+      width: 100%;
+      padding: 5px 10px;
+      grid-column: 7/ 10;
+      border:none;
+      outline: none;
+      background-color:#E5E7E9 ;
+      border-radius: 2px;
+   }
+
+   a
+   {
+
+      color: #fff;
+      font-weight: 800;
+      text-decoration: none;
+      padding: 10px;
+   }
+
+   .activo
+   {
+
+       background-color: rebeccapurple;
+
+   }
+
+   #logo
+   {
+
+      font-size: 20px;
+      grid-column: 2/ 3;
+      
+   }
+
+   #boton
+   {
+
+      margin-left: 10px;
+      padding: 5px;
+      font-size: 12px;
+      color: white;
+      font-weight: 500;
+      width: 100px;
+      border: none;
+      background-color: #4A6CE3;
+      cursor: pointer;
+
+
+   }
+
+.titulo
+{
+
+   background-color: #1D1D37;
+   display: flex;
+   margin-bottom: 2px;
+
+}
+
+.ano
+{
+
+   position: absolute;
+   background-color: #1D1D37;
+   padding: 2px;
+ 
+}
+
+.movie:hover .ano, .movie:hover .titulo,.movie:hover 
+{
+  background-color: rebeccapurple;
+}
+
+#boton:hover
+{
+
+   
+
+}
+
+#container
+{
+  
+   display: flex;
+   justify-content: space-around;
+   flex-wrap: wrap;
+   width: 100%;
+   background-color: #0B0B14;
+   
+
+}
+
+.movie
+{
+   text-align: center;
+   padding: 10px;
+   background-color: #1D1D37;
+   color: #fff;
+   margin-top: 20px;
+   cursor: pointer;
+   width: 200px;
+
+}
+
+.img
+{
+  
+    width: 200px;
+    height: 300px;
+
+}
+
+#contUsuario
+{
+   
+    grid-column: 12/ 13;
+   
+
+}
+
+#usuario
+{
+   
+   background-color: #4A6CE3;
+   width: 30px;
+   position: relative;
+   height: 30px;
+   border-radius: 50px;
+   overflow: hidden;
+   cursor: pointer;
+
+}
+
+#usuarioCab
+{
+   
+   background-color: #bbb;
+   width: 10px;
+   height: 10px;
+   border-radius: 20px;
+   margin-left: 10px;
+   position: absolute;
+   margin-top: 6px;
+
+}
+
+#usuarioCuerpo
+{
+   
+   position: absolute;
+   width: 30px;
+   height: 30px;
+   background-color: #bbb;
+   border-radius: 50px;
+   margin-top: 17px;
+
+}
+
+
+#menuLogin
+{
+
+   background-color: white;
+   position: absolute;
+   width: 100px;
+   margin-left: -100px;
+   padding: 10px;
+   z-index: 1;
+   background-color: #91A5D7;
+   display: none;
+
+
+}
+
+#menuLogin li
+{
+  
+  list-style: none;
+
+}
+
+
+#menuLogin  a
+{
+
+  color: white;
+  cursor: pointer;
+  display: block;
+
+}
+
+#menuLogin a:hover
+{
+
+  color: #1D1D37;
+
+}
+
+.block
+{
+   
+   display: block !important;
+
+}
+
+
+@media (min-width: 600px) {
+
+   #menuIcon 
+   {
+
+      display: none;
+
+
+   }
+
+}
+
+@media (max-width: 600px) {
+
+   #menuIcon 
+   {
+
+      margin-left: 20px;
+
+   }
+
+   nav{
+
+      position: absolute;
+      background-color: white;
+      height: 100%;
+      width: 200px;
+      left: -200px;
+      z-index: 3;
+      display: flex;
+      bottom: 0px;
+      top: 50px;
+     
+
+   }
+
+   #logo
+   {
+        
+      grid-column: 3/ 6;
+      
+  
+   }
+
+   
+}
+
+ 
+
+   .menuHamburgesa
+   {
+     
+     
+   }
+
+   /* Add Animation */ 
+   @-webkit-keyframes animatetop {
+      from {left:-200px;} 
+      to {left:0;}
+   }
+
