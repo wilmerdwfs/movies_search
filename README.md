@@ -1,2 +1,2 @@
 # movies
-Se consultan las peliculas con una api, pagina generada en javascript puro
+The movies are consulted with an api, page generated in pure javascript
